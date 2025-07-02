@@ -16,15 +16,15 @@ const dummyProducts = [
 
 const ProductList = () => {
   return (
-    <div className='mt-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-[20px]'>
-        {dummyProducts.map((product, idx) => (
-        <ProductCard
-          key={idx}
-          image={product.image}
-          title={product.title}
-          price={product.price}
-        />
-      ))}
+    <div className='mt-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[17px] lg:gap-[20px]'>
+        {dummyProducts.map((product, i) => (
+          <ProductCard
+            key={i}
+            image={product.image}
+            title={product.title}
+            price={product.price}
+          />
+        ))}
     </div>
   )
 }

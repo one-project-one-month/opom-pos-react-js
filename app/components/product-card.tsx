@@ -8,7 +8,7 @@ type ProductCardProps = {
 
 export const ProductCard = ({image, title, price}: ProductCardProps) => {
   return (
-    <div className='w-[180px] h-[209px] bg-[#F6F6F6] rounded-[12px] flex justify-center items-center shadow-[0_5px_15px_0_rgba(0,0,0,0.05)]'>
+    <div className='w-full h-full bg-[#F6F6F6] lg:h-[209px] rounded-[12px] flex justify-center items-center shadow-[0_5px_15px_0_rgba(0,0,0,0.05)]'>
         <div className='w-[110px] h-[178px]'>
             <div className='space-y-[10px]'>
                 <Image
@@ -24,3 +24,5 @@ export const ProductCard = ({image, title, price}: ProductCardProps) => {
     </div>
   )
 }
+
+// lg:w-[180px] lg:h-[209px]

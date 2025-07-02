@@ -2,8 +2,8 @@ import React from 'react'
 import CategoryCard from './category-card';
 
 const dummyCategories = [
-  { title: 'Vegetables', active: true },
-  { title: 'Fruits' },
+  { title: 'Vegetables and fruits', active: true },
+  { title: 'Fruits', active: true  },
   { title: 'Meat' },
   { title: 'Seafood' },
   { title: 'Dairy' },
@@ -16,7 +16,7 @@ const dummyCategories = [
 
 const CategoryList = () => {
   return (
-    <div className='flex gap-[10px] overflow-x-auto'>
+    <div className='flex gap-[10px] overflow-x-auto no-scrollbar'>
         {dummyCategories.map((cat, idx) => (
             <CategoryCard key={idx} title={cat.title} active={cat.active} />
         ))}

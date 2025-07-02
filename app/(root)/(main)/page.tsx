@@ -4,8 +4,8 @@ import ProductSearch from "@/app/components/product-search";
 
 export default function Home() {
   return (
-    <div className="md:flex justify-center items-center max-w-[1280px] mx-auto">
-      <div className="max-w-[848px] md:w-[848px] h-full p-5">
+    <div className="flex justify-center items-start max-w-[1280px] mx-auto">
+      <div className="w-2/3 h-full p-5">
         <div className="flex justify-start items-center h-[48px]">
           <CategoryList/>
           <ProductSearch/>
@@ -14,7 +14,7 @@ export default function Home() {
           <ProductList/>
         </div>
       </div>
-      <div className="max-w-[432px] md:w-[432px] h-full bg-green-300">
+      <div className="w-1/3 h-full bg-green-300">
         Oder Summary & Checkout
       </div>
     </div>
