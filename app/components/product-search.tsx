@@ -6,13 +6,7 @@ const ProductSearch = () => {
       <label htmlFor="Search" className="w-full">
         <span className="sr-only">Search</span>
         <div className="relative">
-          <input
-            type="text"
-            id="Search"
-            className="w-full rounded-[40px] border border-[#939393] h-[48px] px-8 text-xs md:text-sm lg:text-[16px] focus:outline-none"
-            placeholder="search products"
-          />
-          <span className="absolute inset-y-0 right-7 flex items-center text-[#939393CC]">
+             <span className="absolute inset-y-0 left-7 flex items-center text-[#939393CC]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -28,6 +22,13 @@ const ProductSearch = () => {
                 />
               </svg>
           </span>
+          <input
+            type="text"
+            id="Search"
+            className="w-full rounded-[40px] border border-[#939393] h-[48px] pl-14 pr-8 text-xs md:text-sm lg:text-[16px] focus:outline-none"
+            placeholder="search products"
+          />
+       
         </div>
       </label>
     </div>
