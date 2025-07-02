@@ -17,8 +17,8 @@ export const ProductCard = ({image, title, price}: ProductCardProps) => {
                     height="110"
                     alt='Product Image'
                 />
-                <p className='text-[16px] leading-[24px] font-normal text-[#000000] text-center'>{title}</p>
-                <h3 className='text-[16px] leading-[24px] font-bold text-center text-[#000000]'>{price}</h3>
+                <p className=' text-xs md:text-sm lg:text-[16px] leading-[24px] font-normal text-[#000000] text-center'>{title}</p>
+                <h3 className=' text-xs md:text-sm lg:text-[16px] leading-[24px] font-bold text-center text-[#000000]'>{price}</h3>
             </div>
         </div>
     </div>

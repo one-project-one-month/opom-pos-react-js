@@ -3,7 +3,7 @@ import CategoryCard from './category-card';
 
 const dummyCategories = [
   { title: 'Vegetables and fruits', active: true },
-  { title: 'Fruits', active: true  },
+  { title: 'Fruits' },
   { title: 'Meat' },
   { title: 'Seafood' },
   { title: 'Dairy' },

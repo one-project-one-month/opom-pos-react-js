@@ -16,7 +16,7 @@ const dummyProducts = [
 
 const ProductList = () => {
   return (
-    <div className='mt-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[17px] lg:gap-[20px]'>
+    <div className='mt-5 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[17px] lg:gap-[20px]'>
         {dummyProducts.map((product, i) => (
           <ProductCard
             key={i}
