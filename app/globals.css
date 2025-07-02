@@ -47,3 +47,13 @@
   --color-success-800: #044c12;
   --color-success-900: #033b0e;
 }
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
