@@ -1,6 +1,8 @@
 'use client'
 import React from 'react'
 import { ProductCard } from './product-card'
+import { useDispatch } from 'react-redux'
+import { addOrder } from '../store/slices/orderSummarySlice'
 
 const dummyProducts = [
   { image: '/images/tomato.png', title: 'Tomato', price: '1500 MMK ' },
@@ -22,9 +24,8 @@ const ProductList = () => {
     price: string
   }
 
-  const addOrders = (product: Product): void => {
-    console.log('Product added to order:', product)
-  }
+  const dispatch = useDispatch()
+
   return (
     <div className="h-full grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[17px] lg:gap-[20px] overflow-y-auto no-scrollbar">
       {dummyProducts.map((product, i) => (
@@ -33,7 +34,7 @@ const ProductList = () => {
           image={product.image}
           title={product.title}
           price={product.price}
-          addOrdersClick={() => addOrders(product)}
+          ordersClick={() => dispatch(addOrder(product))}
         />
       ))}
     </div>
