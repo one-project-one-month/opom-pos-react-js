@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { stat } from 'fs'
 
 export interface OrderSummaryState {
   orders: {
@@ -46,6 +45,6 @@ export const orderSummarySlice = createSlice({
   },
 })
 
-export const { addOrder, removeOrder, increaseQuantity } =
-  orderSummarySlice.actions
+export const { addOrder, removeOrder, increaseQuantity } = orderSummarySlice.actions
+
 export default orderSummarySlice.reducer
