@@ -11,41 +11,52 @@ export default function OrderLists() {
   const dispatch = useDispatch()
 
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-      <thead>
-        <tr>
-          <th style={{ padding: '8px', textAlign: 'left' }}>Item</th>
-          <th style={{ padding: '8px', textAlign: 'left' }}>Qty</th>
-          <th style={{ padding: '8px', textAlign: 'left' }}>Price</th>
-          <th style={{ padding: '8px', textAlign: 'left' }}></th>
-        </tr>
-      </thead>
-      <tbody>
-        {orders.map((order: any, i: number) => (
-          <tr key={i}>
-            <td style={{ padding: '8px' }}>{order.title}</td>
-            <td
-              style={{ padding: '8px', display: 'flex', alignItems: 'center' }}>
-              {order.quantity}{' '}
-              <span
-                className="cursor-pointer"
-                style={{ marginLeft: '8px' }}
-                onClick={() =>
-                  dispatch(increaseQuantity({ title: order.title }))
-                }>
-                <PlusCircle />
-              </span>
-            </td>
-            <td style={{ padding: '8px' }}>{order.price}</td>
-            <td style={{ padding: '8px' }}>
-              <button
-                onClick={() => dispatch(removeOrder({ title: order.title }))}>
-                <Trash2 />
-              </button>
-            </td>
+    <div className="h-[300px] flex flex-col min-h-0 overflow-hidden">
+      {/* Fixed Header */}
+      <table className="w-full table-fixed">
+        <thead>
+          <tr>
+            <th className="text-left p-1">Items</th>
+            <th className="text-left p-1">Qty</th>
+            <th className="text-left p-1">Price</th>
+            <th className="text-left p-1"></th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+      </table>
+
+      {/* Scrollable Body */}
+      <div className="flex-1 overflow-y-auto no-scrollbar">
+        <table className="w-full table-fixed">
+          <tbody>
+            {orders.map((order: any, i: number) => (
+              <tr key={i}>
+                <td className="p-2 text-left">{order.title}</td>
+                <td className="p-2 text-left">
+                  <div className="flex items-center">
+                    {order.quantity}
+                    <span
+                      className="cursor-pointer ms-1"
+                      onClick={() =>
+                        dispatch(increaseQuantity({ title: order.title }))
+                      }>
+                      <PlusCircle />
+                    </span>
+                  </div>
+                </td>
+                <td className="p-2 text-left">{order.price}</td>
+                <td className="p-2 text-center">
+                  <button
+                    onClick={() =>
+                      dispatch(removeOrder({ title: order.title }))
+                    }>
+                    <Trash2 />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   )
 }

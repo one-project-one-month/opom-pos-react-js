@@ -5,8 +5,8 @@ import OrderSummary from '@/app/components/orderSummary/order-summary'
 
 export default function Home() {
   return (
-    <div className="flex justify-center items-start max-w-[1280px] mx-auto min-h-screen h-screen">
-      <div className="w-2/3 h-screen p-5 flex flex-col border-r border-[#9E9E9ECC]">
+    <div className="flex justify-center items-start max-w-full  min-h-screen h-screen ">
+      <div className="flex-4 h-screen p-5 flex flex-col border-r border-[#9E9E9ECC]">
         <div className="space-y-5">
           <ProductSearch />
           <CategoryList />
@@ -15,7 +15,7 @@ export default function Home() {
           <ProductList />
         </div>
       </div>
-      <div className="w-1/3 h-screen">
+      <div className="flex-2 h-[calc(100vh-79px)] overflow-hidden py-5 flex flex-col">
         <OrderSummary />
       </div>
     </div>
