@@ -19,32 +19,39 @@ export const orderSummarySlice = createSlice({
   initialState,
   reducers: {
     addOrder: (state, action) => {
-      state.orders.push({ ...action.payload, quantity: 1 }) // Ensure quantity starts at 1
+      const order = state.orders.find((o) => o.title === action.payload.title)
+      if (state.orders.length !== 0 && order) {
+        order.quantity++
+      } else {
+        state.orders.unshift({ ...action.payload, quantity: 1 })
+      }
+      // Ensure quantity starts at 1
     },
 
     removeOrder: (state, action) => {
-      const order = state.orders.find((o) => o.title === action.payload.title)
-      //remove qty first if it is more than 1
-      if (order && order.quantity > 1) {
-        order.quantity -= 1
-      } else {
-        console.log('it works')
-        state.orders = state.orders.filter(
-          (o) => o.title !== action.payload.title
-        )
-        console.log(state.orders)
-      }
+      // const order = state.orders.find((o) => o.title === action.payload.title)
+
+      state.orders = state.orders.filter(
+        (o) => o.title !== action.payload.title
+      )
     },
 
     increaseQuantity: (state, action) => {
       const order = state.orders.find((o) => o.title === action.payload.title)
       if (order) {
-        order.quantity += 1
+        order.quantity++
+      }
+    },
+    decreaseQuantity: (state, action) => {
+      const order = state.orders.find((o) => o.title === action.payload.title)
+      if (order) {
+        order.quantity--
       }
     },
   },
 })
 
-export const { addOrder, removeOrder, increaseQuantity } = orderSummarySlice.actions
+export const { addOrder, removeOrder, increaseQuantity, decreaseQuantity } =
+  orderSummarySlice.actions
 
 export default orderSummarySlice.reducer

@@ -21,7 +21,13 @@ export default function OrderCheckout() {
           <span className="font-bold">{totalAmount}MMK</span>
         </li>
       </ul>
-      <button className="text-white font-bold text-[18px] bg-[#FB9E3A] w-full rounded-[15px] py-[10px]">
+      <button
+        disabled={orders.length === 0}
+        className={`text-white font-bold text-[18px] w-full rounded-[15px] py-[10px] ${
+          orders.length === 0
+            ? 'bg-gray-400 cursor-not-allowed'
+            : 'bg-[#FB9E3A] hover:bg-orange-400'
+        }`}>
         Checkout
       </button>
     </div>
