@@ -13,9 +13,10 @@ export default function Home() {
   const [currentModal, setCurrentModal] = useState<ModalTypes>(null);
   const [paymentMethod, setPaymentMethod] =
     useState<PaymentMethodTypes>('cash');
+
   return (
     <>
-      <div className="flex items-start max-w-full min-h-screen h-screen">
+      <div className="flex  items-start max-w-full min-h-screen h-screen ">
         <div className="lg:w-2/3 md:w-2/3 w-[80%] h-screen p-5 flex flex-col border-r border-[#9E9E9ECC]">
           <div className="space-y-5">
             <ProductSearch />
@@ -26,7 +27,7 @@ export default function Home() {
           </div>
         </div>
         <OrderSummaryLayout />
-        <div className="w-1/3 h-screen">
+        {/* <div className="w-1/3 h-screen">
           Order Summary & Checkout{' '}
           <CustomBtn
             onClick={() => setCurrentModal('order')}
@@ -34,7 +35,7 @@ export default function Home() {
           >
             Open Modal
           </CustomBtn>
-        </div>
+        </div> */}
       </div>
       {/* Order Modal */}
       {currentModal === 'order' && (
