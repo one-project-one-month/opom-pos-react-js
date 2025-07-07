@@ -47,7 +47,9 @@
   --color-success-800: #044c12;
   --color-success-900: #033b0e;
 }
-
+body {
+  @apply font-sans;
+}
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
