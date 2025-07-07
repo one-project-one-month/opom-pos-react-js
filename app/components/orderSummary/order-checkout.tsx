@@ -7,7 +7,7 @@ export default function OrderCheckout() {
     return total + parseFloat(order.price) * order.quantity
   }, 0)
   return (
-    <div className="px-6 bg-[#f1f1f1] py-8 pe-15">
+    <div className="flex flex-col justify-end px-6 bg-[#f1f1f1] pt-8 pb-5 pe-15">
       <ul>
         <li className="w-full flex justify-between">
           <p>Sub Total</p>
@@ -23,7 +23,7 @@ export default function OrderCheckout() {
       </ul>
       <button
         disabled={orders.length === 0}
-        className={`text-white font-bold text-[18px] w-full rounded-[15px] py-[10px] ${
+        className={`text-white font-bold text-[18px] w-full rounded-[15px] py-[10px] mb-2 ${
           orders.length === 0
             ? 'bg-gray-400 cursor-not-allowed'
             : 'bg-[#FB9E3A] hover:bg-orange-400'

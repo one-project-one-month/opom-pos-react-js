@@ -13,11 +13,11 @@ export default function OrderLists() {
   const dispatch = useDispatch()
 
   if (orders.length === 0) {
-    return <p className="font-bold ms-1">No Orders</p>
+    return <p className="font-bold px-5 flex-2/3">No Orders</p>
   }
 
   return (
-    <div className="h-[300px] flex flex-col min-h-0 overflow-hidden">
+    <div className="flex-2/3 min-h-0 overflow-hidden px-5">
       {/* Fixed Header */}
       <table className="w-full table-fixed">
         <thead>
@@ -31,12 +31,14 @@ export default function OrderLists() {
       </table>
 
       {/* Scrollable Body */}
-      <div className="flex-1 overflow-y-auto no-scrollbar">
+      <div className="h-[90%] overflow-y-auto no-scrollbar">
         <table className="w-full table-fixed">
           <tbody>
             {orders.map((order: any, i: number) => (
               <tr key={i}>
-                <td className="p-2 text-left">{order.title}</td>
+                <td className="py-2 text-left break-words max-w-[150px]">
+                  {order.title}
+                </td>
                 <td className="p-2 text-left">
                   <div className="flex items-center justify-center">
                     <button
