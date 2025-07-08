@@ -12,12 +12,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
-});
+})
 
 export const metadata: Metadata = {
   title: 'OPOMPOS',
   description: 'One Project One Month POS System',
-};
+}
 
 export default function RootLayout({
   children,
@@ -30,7 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}>
         <Providers>
           <Header />
-          <main className="pt-[100px] px-5 lg:px-10">{children}</main>
+          <main className="pt-[100px]">{children}</main>
         </Providers>
       </body>
     </html>
