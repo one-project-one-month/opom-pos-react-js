@@ -1,3 +1,4 @@
+
 'use client';
 import CategoryList from '@/app/components/category-list';
 import ProductList from '@/app/components/product-list';
@@ -8,11 +9,13 @@ import { ModalTypes, PaymentMethodTypes } from '@/app/type/type';
 import Modal from '@/app/components/modal';
 import CustomBtn from '@/app/components/custom-btn';
 
+
 export default function Home() {
   const [currentModal, setCurrentModal] = useState<ModalTypes>(null);
   const [paymentMethod, setPaymentMethod] =
     useState<PaymentMethodTypes>('cash');
   return (
+
     <>
       <div className="flex justify-center items-start max-w-[1280px] mx-auto min-h-screen h-screen">
         <div className="w-2/3 h-screen p-5 flex flex-col border-r border-[#9E9E9ECC]">
@@ -66,4 +69,5 @@ export default function Home() {
       )}
     </>
   );
+
 }
