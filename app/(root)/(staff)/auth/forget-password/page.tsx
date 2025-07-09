@@ -8,7 +8,7 @@ function ForgetPassword() {
         <h1 className="text-7xl font-bold  mb-4 ">
           <span className="text-primary-300">OPOM</span>POS
         </h1>
-        <p>Online inventory management system</p>
+        <p>Inventory management system</p>
         <div className="flex flex-col gap-4 mt-8">
           <h2 className=" text-2xl font-extrabold">Forgot your password?</h2>
           <div>
@@ -22,7 +22,7 @@ function ForgetPassword() {
           </div>
 
           <button className="bg-primary-300 text-white px-4 py-2 rounded">
-            <Link href="/auth/ForgetPassword/GetOTP">Confirm</Link>
+            <Link href="/auth/forget-password/get-otp">Confirm</Link>
           </button>
         </div>
       </div>

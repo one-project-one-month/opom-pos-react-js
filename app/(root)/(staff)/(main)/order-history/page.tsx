@@ -9,8 +9,8 @@ function OrderHistory() {
     const [value, setValue] = useState('1');
   return (
     
-        <div className='max-w-[1280px] mx-auto '>
-            <div className="flex justify-between items-center gap-5 mb-4">
+        <div>
+            {/* <div className="flex justify-between items-center gap-5 mb-4">
                 <div className='w-full flex items-center gap-3'>
                     <ProductSearch/>
                     <CustomBtn className='bg-[#FB9E3A] text-white'>Search</CustomBtn>
@@ -19,9 +19,9 @@ function OrderHistory() {
                     
                     <DateFilter/>
                 </div>
-            </div>
+            </div> */}
             
-            <div className="overflow-x-auto mt-16">
+            <div className="overflow-x-auto">
                 <table className="min-w-full divide-y-2 divide-gray-200">
                         <thead className="ltr:text-left rtl:text-right">
                         <tr className="*:font-medium *:text-gray-900">
