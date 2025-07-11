@@ -9,7 +9,7 @@ function Signup() {
         <h1 className="text-7xl font-bold  mb-4 ">
           <span className="text-primary-300">OPOM</span>POS
         </h1>
-        <p>Online inventory management system</p>
+        <p>Inventory management system</p>
         <div className="flex flex-col gap-4 mt-8">
           <h2 className=" text-2xl font-extrabold">Registration New Account</h2>
           <div>
@@ -45,7 +45,7 @@ function Signup() {
           <p className="text-sm mt-4 text-gray-600">
             Already have an account?
             <Link
-              href="/auth/Login"
+              href="/auth/login"
               className="text-primary-300 hover:underline cursor-pointer"
             >
               Go to Login

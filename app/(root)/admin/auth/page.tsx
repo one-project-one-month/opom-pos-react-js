@@ -1,7 +1,6 @@
 "use client";
-import Link from "next/link";
-import React, { useState } from "react";
-import { FaUser, FaLock } from "react-icons/fa";
+import { useState } from "react";
+import { FaLock, FaUser } from "react-icons/fa";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
 function Login() {
@@ -12,7 +11,7 @@ function Login() {
         <h1 className="text-7xl font-bold  mb-4 ">
           <span className="text-primary-300">OPOM</span>POS
         </h1>
-        <p>Online inventory management system</p>
+        <p>Inventory management system</p>
         <div className="flex flex-col gap-4 mt-8">
           <h2 className=" text-2xl font-extrabold">Login</h2>
           <div>
@@ -40,22 +39,10 @@ function Login() {
               {showPassword ? <FiEye /> : <FiEyeOff />}
             </button>
           </div>
-          <div className="text-right mb-4 text-sm text-gray-500 hover:underline cursor-pointer">
-            <Link href="/auth/ForgetPassword">Forgot Password ?</Link>
-          </div>
 
           <button className="bg-primary-300 text-white px-4 py-2 rounded">
             Login
           </button>
-          <p className="text-sm mt-4 text-gray-600">
-            Don’t have an account?
-            <Link
-              href="/auth/Signup"
-              className="text-primary-300 hover:underline cursor-pointer"
-            >
-              Go to Registration
-            </Link>
-          </p>
         </div>
       </div>
       <div className="flex-1/3 overflow-hidden">

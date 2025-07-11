@@ -8,7 +8,7 @@ function GetOTP() {
         <h1 className="text-7xl font-bold  mb-4 ">
           <span className="text-primary-300">OPOM</span>POS
         </h1>
-        <p>Online inventory management system</p>
+        <p>Inventory management system</p>
         <div className="flex flex-col gap-4 mt-8">
           <h2 className=" text-2xl font-extrabold">OTP Number</h2>
           <p className="text-xs">
@@ -38,7 +38,7 @@ function GetOTP() {
           </div>
 
           <Link
-            href="/auth/ForgetPassword/RestPassword"
+            href="/auth/forget-password/reset-password"
             className="bg-primary-300 text-white px-4 py-2 rounded text-center"
           >
             Confirm
