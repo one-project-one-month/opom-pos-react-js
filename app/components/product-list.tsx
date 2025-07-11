@@ -12,8 +12,6 @@ const ProductList = () => {
 
   const dispatch = useDispatch()
 
-  console.log(data)
-
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-full">
