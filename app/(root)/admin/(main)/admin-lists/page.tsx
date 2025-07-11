@@ -22,51 +22,33 @@ const page = () => {
                       </th>
                       
                       <th className="px-3 py-2 whitespace-nowrap">
-                          <span className='flex items-center gap-1'>
+                          <span className=''>
                               Admin Id
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-                                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-                              </svg>
                           </span>
                       </th>
                       <th className="px-3 py-2 whitespace-nowrap">
-                          <span className='flex items-center gap-1'>
+                          <span className=''>
                               Name
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-                                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-                              </svg>
                           </span>
                       </th>
                       <th className="px-3 py-2 whitespace-nowrap">
-                          <span className='flex items-center gap-1'>
+                          <span className=''>
                               Role
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-                                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-                              </svg>
                           </span>
                       </th>
                       <th className="px-3 py-2 whitespace-nowrap">
-                          <span className='flex items-center gap-1'>
+                          <span className=''>
                               Email
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-                                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-                              </svg>
                           </span>
                       </th>
                       <th className="px-3 py-2 whitespace-nowrap">
-                          <span className='flex items-center gap-1'>
+                          <span className=''>
                               Status
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-                                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-                              </svg>
                           </span>
                       </th>
                       <th className="px-3 py-2 whitespace-nowrap">
-                          <span className='flex items-center gap-1'>
+                          <span className=''>
                               Last Login
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-                                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-                              </svg>
                           </span>
                       </th>
                       <th className="px-3 py-2 whitespace-nowrap">Action</th>
@@ -86,11 +68,12 @@ const page = () => {
                       <td className="px-3 py-2 whitespace-nowrap">Cash</td>
                       <td className="px-3 py-2 whitespace-nowrap">02/07/2025</td>
                       <td className="px-3 py-2 whitespace-nowrap">
-                          <button className="px-2 py-1  border border-gray-300 rounded hover:bg-gray-400 hover:text-white">
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                              </svg>
-                          </button>
+                        <button className='text-blue-500 font-bold'>
+                          Edit
+                        </button> {" / "}
+                        <button className='text-red-500 font-bold'>
+                          Delete
+                        </button>
                       </td>
                   </tr>
 
