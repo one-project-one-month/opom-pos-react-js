@@ -48,96 +48,94 @@ function Signup() {
 
   return (
     <div className="flex justify-center h-screen bg-gray-100">
-      <form
-        onSubmit={handleSubmit(onSubmit, onError)}
-        className="flex-1 p-30 m-auto"
-      >
-        <div className=" flex-1 p-30 m-auto">
-          <h1 className="text-7xl font-bold  mb-4 ">
-            <span className="text-primary-300">OPOM</span>POS
-          </h1>
-          <p className="mb-8">Online inventory management system</p>
+      <div className=" flex-1 p-30 m-auto">
+        <form onSubmit={handleSubmit(onSubmit, onError)}>
+          <div>
+            <h1 className="text-7xl font-bold  mb-4 ">
+              <span className="text-primary-300">OPOM</span>POS
+            </h1>
+            <p className="mb-8">Online inventory management system</p>
 
-          <div className="flex flex-col gap-4">
-            <h2 className="text-2xl font-extrabold">
-              Registration New Account
-            </h2>
+            <div className="flex flex-col gap-4">
+              <h2 className="text-2xl font-extrabold">
+                Registration New Account
+              </h2>
 
-            {/* Staff ID Field */}
-            <div>
-              <div className="flex items-center border-1 border-black rounded-md px-4 py-3">
-                <FaUser className="text-primary-300 mr-2" />
-                <input
-                  {...register("staffId")}
-                  type="text"
-                  placeholder="staff id number"
-                  className="flex-1 outline-none"
-                />
+              {/* Staff ID Field */}
+              <div>
+                <div className="flex items-center border-1 border-black rounded-md px-4 py-3">
+                  <FaUser className="text-primary-300 mr-2" />
+                  <input
+                    {...register("staffId")}
+                    type="text"
+                    placeholder="staff id number"
+                    className="flex-1 outline-none"
+                  />
+                </div>
+                {errors.staffId && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.staffId.message}
+                  </p>
+                )}
               </div>
-              {errors.staffId && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.staffId.message}
-                </p>
-              )}
-            </div>
 
-            {/* Password Field */}
-            <div>
-              <div className="flex items-center border rounded px-3 py-2 bg-white focus-within:ring-2 focus-within:ring-primary-300">
-                <FaLock className="text-primary-300 mr-2" />
-                <input
-                  {...register("password")}
-                  type="password"
-                  placeholder="Password"
-                  className="flex-1 outline-none"
-                />
+              {/* Password Field */}
+              <div>
+                <div className="flex items-center border rounded px-3 py-2 bg-white focus-within:ring-2 focus-within:ring-primary-300">
+                  <FaLock className="text-primary-300 mr-2" />
+                  <input
+                    {...register("password")}
+                    type="password"
+                    placeholder="Password"
+                    className="flex-1 outline-none"
+                  />
+                </div>
+                {errors.password && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.password.message}
+                  </p>
+                )}
               </div>
-              {errors.password && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.password.message}
-                </p>
-              )}
-            </div>
 
-            {/* Password Confirmation Field */}
-            <div>
-              <div className="flex items-center border rounded px-3 py-2 bg-white focus-within:ring-2 focus-within:ring-primary-300">
-                <FaLock className="text-primary-300 mr-2" />
-                <input
-                  {...register("passwordConfirmation")}
-                  type="password"
-                  placeholder="Password Confirmation"
-                  className="flex-1 outline-none"
-                />
+              {/* Password Confirmation Field */}
+              <div>
+                <div className="flex items-center border rounded px-3 py-2 bg-white focus-within:ring-2 focus-within:ring-primary-300">
+                  <FaLock className="text-primary-300 mr-2" />
+                  <input
+                    {...register("passwordConfirmation")}
+                    type="password"
+                    placeholder="Password Confirmation"
+                    className="flex-1 outline-none"
+                  />
+                </div>
+                {errors.passwordConfirmation && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.passwordConfirmation.message}
+                  </p>
+                )}
               </div>
-              {errors.passwordConfirmation && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.passwordConfirmation.message}
-                </p>
-              )}
-            </div>
 
-            <button
-              type="submit"
-              className="bg-primary-300 text-white px-4 py-2 rounded"
-            >
-              Register Now
-            </button>
-
-            <p className="text-sm mt-4 text-gray-600">
-              Already have an account?{" "}
-              <Link
-                href="/auth/Login"
-                className="text-primary-300 hover:underline cursor-pointer"
+              <button
+                type="submit"
+                className="bg-primary-300 text-white px-4 py-2 rounded"
               >
-                Go to Login
-              </Link>
-            </p>
-          </div>
-        </div>
-      </form>
+                Register Now
+              </button>
 
-      <div className="flex-1/3 overflow-hidden">
+              <p className="text-sm mt-4 text-gray-600">
+                Already have an account?{" "}
+                <Link
+                  href="/auth/Login"
+                  className="text-primary-300 hover:underline cursor-pointer"
+                >
+                  Go to Login
+                </Link>
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div className="flex-1/3 overflow-hidden ">
         <img
           src="/image/POSLogin.png"
           alt="Logo"
