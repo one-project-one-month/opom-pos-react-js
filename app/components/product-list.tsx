@@ -8,20 +8,21 @@ import { useFetchProducts } from '../hooks/useFetchProduct'
 import Loading from '../(root)/(staff)/(main)/loading'
 
 const ProductList = () => {
+  const { error, isLoading, data } = useFetchProducts<Product[]>()
 
-  const {error, isLoading, data} = useFetchProducts<Product[]>();
+  const dispatch = useDispatch()
 
-  const dispatch = useDispatch();
+  console.log(data)
 
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-full">
-        <Loading/>
+        <Loading />
       </div>
     )
   }
 
-  if( error) {
+  if (error) {
     return (
       <div className="flex items-center justify-center h-full">
         <div className="text-red-500">Error: {error.message}</div>
