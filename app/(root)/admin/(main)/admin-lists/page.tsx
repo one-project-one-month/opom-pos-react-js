@@ -1,6 +1,41 @@
 "use client"
 import React, { useState } from 'react'
 
+const dummyData = [
+  {
+    id: "12458789",
+    name: "John Doe",
+    role: "Admin",
+    email: "john@example.com",
+    status: "Active",
+    lastLogin: "2025-4-07 09:00",
+  },
+  {
+    id: "12458790",
+    name: "Jane Smith",
+    role: "Staff",
+    email: "jane@example.com",
+    status: "Inactive",
+    lastLogin: "2025-1-07 04:20",
+  },
+  {
+    id: "12458791",
+    name: "Alice Brown",
+    role: "Admin",
+    email: "alice@example.com",
+    status: "Active",
+    lastLogin: "2025-4-02 07:00",
+  },
+  {
+    id: "12458792",
+    name: "Bob Lee",
+    role: "Staff",
+    email: "bob@example.com",
+    status: "Active",
+    lastLogin: "2025-4-05 12:00",
+  },
+];
+
 const page = () => {
   const [value, setValue] = useState(5);
 
@@ -10,9 +45,12 @@ const page = () => {
           <p className='font-[400px] text-[25px]'>
               Admin And Staff Lists
           </p>
-          <div className=''>
-              Add Admin
-          </div>
+          <button className='w-[133px] h-[54px] bg-[#FB9E3A] text-white rounded-[5px] flex items-center justify-center gap-2'>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            Add Admin
+          </button>
       </div>
       <div className="overflow-x-auto">
           <table className="min-w-full divide-y-2 divide-gray-200">
@@ -57,16 +95,19 @@ const page = () => {
                   </thead>
 
                   <tbody className="divide-y divide-gray-200 *:even:bg-gray-50">
-                  <tr className="*:text-gray-900 *:first:font-medium">
+                  {dummyData?.map((item, i) => (
+                     <tr key={i} className="*:text-gray-900 *:first:font-medium h-[68px]">
                       <td className="px-3 py-2 whitespace-nowrap">
-                          <input type="checkbox" className="size-4 rounded border-gray-300 shadow-sm" id="Option1" />
+                          <input type="checkbox" className="size-4 rounded border-gray-300 shadow-sm" id={`Option${i}`} />
                       </td>
-                      <td className="px-3 py-2 whitespace-nowrap">12458789</td>
-                      <td className="px-3 py-2 whitespace-nowrap">12</td>
-                      <td className="px-3 py-2 whitespace-nowrap">John</td>
-                      <td className="px-3 py-2 whitespace-nowrap">30000 MMK</td>
-                      <td className="px-3 py-2 whitespace-nowrap">Cash</td>
-                      <td className="px-3 py-2 whitespace-nowrap">02/07/2025</td>
+                      <td className="px-3 py-2 whitespace-nowrap">{item.id}</td>
+                      <td className="px-3 py-2 whitespace-nowrap">{item.name}</td>
+                      <td className="px-3 py-2 whitespace-nowrap">{item.role}</td>
+                      <td className="px-3 py-2 whitespace-nowrap">{item.email}</td>
+                      <td className="px-3 py-2 whitespace-nowrap">
+                        <p className={`${item.status === "Active" ? "text-green-500" : "text-orange-500"}`}>{item.status}</p>
+                      </td>
+                      <td className="px-3 py-2 whitespace-nowrap">{item.lastLogin}</td>
                       <td className="px-3 py-2 whitespace-nowrap">
                         <button className='text-blue-500 font-bold'>
                           Edit
@@ -76,6 +117,7 @@ const page = () => {
                         </button>
                       </td>
                   </tr>
+                  ))}
 
                   </tbody>
           </table>
