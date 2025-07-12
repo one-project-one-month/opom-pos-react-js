@@ -56,8 +56,6 @@ const page = () => {
           <table className="min-w-full divide-y-2 divide-gray-200">
                   <thead className="ltr:text-left rtl:text-right">
                   <tr className="*:font-medium *:text-gray-900">
-                      <th className="px-3 py-1 whitespace-nowrap">
-                      </th>
                       
                       <th className="px-3 py-2 whitespace-nowrap">
                           <span className=''>
@@ -96,10 +94,7 @@ const page = () => {
 
                   <tbody className="divide-y divide-gray-200 *:even:bg-gray-50">
                   {dummyData?.map((item, i) => (
-                     <tr key={i} className="*:text-gray-900 *:first:font-medium h-[68px]">
-                      <td className="px-3 py-2 whitespace-nowrap">
-                          <input type="checkbox" className="size-4 rounded border-gray-300 shadow-sm" id={`Option${i}`} />
-                      </td>
+                      <tr key={i} className="*:text-gray-900 *:first:font-medium h-[68px]">
                       <td className="px-3 py-2 whitespace-nowrap">{item.id}</td>
                       <td className="px-3 py-2 whitespace-nowrap">{item.name}</td>
                       <td className="px-3 py-2 whitespace-nowrap">{item.role}</td>
