@@ -1,12 +1,21 @@
 "use client";
 import CustomBtn from '@/app/components/custom-btn';
 import DateFilter from '@/app/components/date-filter';
+import Modal from '@/app/components/modal';
 import ProductSearch from '@/app/components/product-search'
+import { ScrollText } from 'lucide-react';
 import  { useState } from 'react'
 
 
 function OrderHistory() {
     const [value, setValue] = useState('1');
+    const [showModal, setShowModal] = useState(false);
+  const [selectedOrder, setSelectedOrder] = useState<any>(null);
+
+  const viewSlip = (order: any) => {
+    setSelectedOrder(order);
+    setShowModal(true);
+  };
     const orders = [
         { 
             id: 123456789, 
@@ -66,81 +75,83 @@ function OrderHistory() {
             
             <div className="overflow-x-auto p-12">
                 <table className="min-w-full divide-y-2 divide-gray-200">
-                        <thead className="ltr:text-left rtl:text-right">
-                            <tr className="*:font-medium *:text-gray-900">
-                                    
-                                <th className="px-3 py-2 whitespace-nowrap">
-                                    <span className='flex items-center gap-1'>
-                                        Receipt Id Number
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-                                        </svg>
-                                    </span>
-                                </th>
-                                <th className="px-3 py-2 whitespace-nowrap">
-                                    <span className='flex items-center gap-1'>
-                                        Items Count
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-                                        </svg>
-                                    </span>
-                                </th>
-                                <th className="px-3 py-2 whitespace-nowrap">
-                                    <span className='flex items-center gap-1'>
-                                        Staff Name
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-                                        </svg>
-                                    </span>
-                                </th>
-                                <th className="px-3 py-2 whitespace-nowrap">
-                                    <span className='flex items-center gap-1'>
-                                        Total Amount
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-                                        </svg>
-                                    </span>
-                                </th>
-                                <th className="px-3 py-2 whitespace-nowrap">
-                                    <span className='flex items-center gap-1'>
-                                        Payment Method
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-                                        </svg>
-                                    </span>
-                                </th>
-                                <th className="px-3 py-2 whitespace-nowrap">
-                                    <span className='flex items-center gap-1'>
-                                        Time
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-                                        </svg>
-                                    </span>
-                                </th>
-                                <th className="px-3 py-2 whitespace-nowrap">Action</th>
-                                
-                            </tr>
-                        </thead>
+                    <thead className="ltr:text-left rtl:text-right">
+                    <tr className="*:font-medium *:text-gray-900">
 
-                        <tbody className="divide-y divide-gray-200 *:even:bg-gray-50">
-                            {
-                                orders.map((order,index) => (
-                                    <tr key={index} className="*:text-gray-900 *:first:font-medium">
-                                        <td className="px-3 py-2 whitespace-nowrap">{order.id}</td>
-                                        <td className="px-3 py-2 whitespace-nowrap">{order.itemsCount}</td>
-                                        <td className="px-3 py-2 whitespace-nowrap">{order.staffName}</td>
-                                        <td className="px-3 py-2 whitespace-nowrap">{order.totalAmount}</td>
-                                        <td className="px-3 py-2 whitespace-nowrap">{order.paymentMethod}</td>
-                                        <td className="px-3 py-2 whitespace-nowrap">{order.time}</td>
-                                        <td className="px-3 py-2 whitespace-nowrap">
-                                            <button className="px-2 py-1 rounded bg-blue-700 hover:border-blue-500 hover:bg-blue-500 text-white text-sm">
-                                                Viewslip
-                                            </button>
-                                        </td>
+                                        <th className="px-3 py-2 whitespace-nowrap">
+                                            <span className='flex items-center gap-1'>
+                                                Receipt Id Number
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                                                </svg>
+                                            </span>
+                                        </th>
+                                        <th className="px-3 py-2 whitespace-nowrap">
+                                            <span className='flex items-center gap-1'>
+                                                Items Count
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                                                </svg>
+                                            </span>
+                                        </th>
+                                        <th className="px-3 py-2 whitespace-nowrap">
+                                            <span className='flex items-center gap-1'>
+                                                Staff Name
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                                                </svg>
+                                            </span>
+                                        </th>
+                                        <th className="px-3 py-2 whitespace-nowrap">
+                                            <span className='flex items-center gap-1'>
+                                                Total Amount
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                                                </svg>
+                                            </span>
+                                        </th>
+                                        <th className="px-3 py-2 whitespace-nowrap">
+                                            <span className='flex items-center gap-1'>
+                                                Payment Method
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                                                </svg>
+                                            </span>
+                                        </th>
+                                        <th className="px-3 py-2 whitespace-nowrap">
+                                            <span className='flex items-center gap-1'>
+                                                Time
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                                                </svg>
+                                            </span>
+                                        </th>
+                                        <th className="px-3 py-2 whitespace-nowrap">Action</th>
+
                                     </tr>
-                                ))
-                            }
-                        </tbody>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200 *:even:bg-gray-50">
+                    {
+                        orders.map((order,index) => (
+                        <tr key={index} className="*:text-gray-900 *:first:font-medium h-12 hover:bg-gray-100 transition-colors cursor-pointer">
+                            <td className="px-3 py-2 whitespace-nowrap">{order.id}</td>
+                            <td className="px-3 py-2 whitespace-nowrap">{order.itemsCount}</td>
+                            <td className="px-3 py-2 whitespace-nowrap">{order.staffName}</td>
+                            <td className="px-3 py-2 whitespace-nowrap">{order.totalAmount}</td>
+                            <td className="px-3 py-2 whitespace-nowrap">{order.paymentMethod}</td>
+                            <td className="px-3 py-2 whitespace-nowrap">{order.time}</td>
+                            <td className="px-3 py-2 whitespace-nowrap">
+                                <button
+                                    className={`px-2 py-1 rounded z-10  text-sm cursor-pointer"
+                                    ${selectedOrder === order.id ? "text-blue-950" : "text-[#2859C5]"}`}
+                                    onClick={() => viewSlip(order)}
+                                >
+                                    Viewslip
+                                </button>
+                            </td>
+                            </tr>                   
+                        ))  }
+                    </tbody>
                 </table>
                 <div className='flex gap-3 justify-between items-center mt-5 px-5'>
                     <ul className="flex justify-start gap-1 text-gray-900">
@@ -221,7 +232,55 @@ function OrderHistory() {
                             </a>
                         </li>
                     </ul>
-                </div>    
+                </div>
+
+                {/* Modal rendered ONCE here */}
+                {showModal && selectedOrder && (
+                <Modal onClose={() => setShowModal(false)} className="bg-white p-6 rounded-2xl shadow-xl w-full max-w-sm mx-auto">
+                <div className="space-y-4">
+                    <h2 className="flex gap-5 items-center text-2xl font-semibold text-gray-800 ">
+                    <ScrollText /> 
+                    <span>Order Slip</span>
+                    </h2>
+                    <div className="text-sm text-gray-500 border-b pb-2 mt-10">
+                    <span className="font-medium text-gray-700">Order ID:</span> {selectedOrder.id}
+                    </div>
+
+                    <div className="space-y-2 text-gray-700 text-sm">
+                    <div className="flex justify-between">
+                        <span className="font-medium">Items Count:</span>
+                        <span>{selectedOrder.itemsCount}</span>
+                    </div>
+                    <div className="flex justify-between">
+                        <span className="font-medium">Staff Name:</span>
+                        <span>{selectedOrder.staffName}</span>
+                    </div>
+                    <div className="flex justify-between">
+                        <span className="font-medium">Total Amount:</span>
+                        <span>${selectedOrder.totalAmount}</span>
+                    </div>
+                    <div className="flex justify-between">
+                        <span className="font-medium">Payment Method:</span>
+                        <span>{selectedOrder.paymentMethod}</span>
+                    </div>
+                    <div className="flex justify-between">
+                        <span className="font-medium">Time:</span>
+                        <span>{selectedOrder.time}</span>
+                    </div>
+                    </div>
+
+                    <div className="mt-32">
+                    <button
+                        className="w-full py-2 px-4 bg-[#8F8F8F] text-white rounded-lg transition-all duration-200"
+                        onClick={() => setShowModal(false)}
+                    >
+                        Close
+                    </button>
+                    </div>
+                </div>
+                </Modal>
+
+                )}    
             </div>
         </div>
     
