@@ -34,7 +34,7 @@ export default function OrderSummaryLayout() {
       {/* Order Summary Container */}
       <div
         className={`
-    fixed top-[79px] right-0 h-[calc(100vh-79px)] bg-white
+    fixed top-[79px] right-[0] h-[calc(100vh-79px)] bg-white
     w-full lg:w-1/3 md:w-1/3
     transition-transform duration-500 ease-in-out
     transform

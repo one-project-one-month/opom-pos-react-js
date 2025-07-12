@@ -1,18 +1,17 @@
-'use client';
-import CategoryList from '@/app/components/category-list';
-import ProductList from '@/app/components/product-list';
-import ProductSearch from '@/app/components/product-search';
+'use client'
+import CategoryList from '@/app/components/category-list'
+import ProductList from '@/app/components/product-list'
+import ProductSearch from '@/app/components/product-search'
 import OrderSummaryLayout from '@/app/components/orderSummary/order-summary-layout'
-import { useState } from 'react';
-import PaymentModel from './PaymentModal';
-import { ModalTypes, PaymentMethodTypes } from '@/app/type/type';
-import Modal from '@/app/components/modal';
-import CustomBtn from '@/app/components/custom-btn';
+import { useState } from 'react'
+import PaymentModel from './PaymentModal'
+import { ModalTypes, PaymentMethodTypes } from '@/app/type/type'
+import Modal from '@/app/components/modal'
+import CustomBtn from '@/app/components/custom-btn'
 
 export default function Home() {
-  const [currentModal, setCurrentModal] = useState<ModalTypes>(null);
-  const [paymentMethod, setPaymentMethod] =
-    useState<PaymentMethodTypes>('cash');
+  const [currentModal, setCurrentModal] = useState<ModalTypes>(null)
+  const [paymentMethod, setPaymentMethod] = useState<PaymentMethodTypes>('cash')
 
   return (
     <>
@@ -37,13 +36,12 @@ export default function Home() {
           </CustomBtn>
         </div> */}
       </div>
-      {/* Order Modal */}
+      Order Modal
       {currentModal === 'order' && (
         <Modal onClose={() => setCurrentModal(null)}>
           <CustomBtn
             onClick={() => setCurrentModal('payment')}
-            className="bg-[#FB9E3A]"
-          >
+            className="bg-[#FB9E3A]">
             Go to payment modal
           </CustomBtn>
         </Modal>
@@ -61,12 +59,11 @@ export default function Home() {
         <Modal onClose={() => setCurrentModal(null)}>
           <CustomBtn
             onClick={() => setCurrentModal(null)}
-            className="bg-[#FB9E3A]"
-          >
+            className="bg-[#FB9E3A]">
             Close
           </CustomBtn>
         </Modal>
       )}
     </>
-  );
+  )
 }

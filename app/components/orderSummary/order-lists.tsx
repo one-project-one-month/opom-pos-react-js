@@ -37,7 +37,7 @@ export default function OrderLists() {
             {orders.map((order: any, i: number) => (
               <tr key={i}>
                 <td className="py-2 text-left break-words max-w-[150px]">
-                  {order.title}
+                  {order.name}
                 </td>
                 <td className="p-2 text-left">
                   <div className="flex items-center justify-center">
@@ -46,7 +46,7 @@ export default function OrderLists() {
                         order.quantity > 1 ? 'block' : 'invisible'
                       }`}
                       onClick={() =>
-                        dispatch(decreaseQuantity({ title: order.title }))
+                        dispatch(decreaseQuantity({ id: order.id }))
                       }>
                       <MinusCircle
                         fill="#fb9e3a"
@@ -59,7 +59,7 @@ export default function OrderLists() {
                     <button
                       className="cursor-pointer "
                       onClick={() =>
-                        dispatch(increaseQuantity({ title: order.title }))
+                        dispatch(increaseQuantity({ id: order.id }))
                       }>
                       <PlusCircle
                         fill="#fb9e3a"
@@ -72,9 +72,7 @@ export default function OrderLists() {
                 <td className="p-2 text-center">{parseFloat(order.price)}</td>
                 <td className="p-2 text-center">
                   <button
-                    onClick={() =>
-                      dispatch(removeOrder({ title: order.title }))
-                    }>
+                    onClick={() => dispatch(removeOrder({ id: order.id }))}>
                     <Trash2 className="cursor-pointer" size={20} />
                   </button>
                 </td>

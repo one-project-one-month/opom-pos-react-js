@@ -5,7 +5,7 @@ import Providers from '../provider'
 export const metadata: Metadata = {
   title: 'OPOMPOS',
   description: 'One Project One Month POS System',
-};
+}
 
 export default function RootLayout({
   children,
@@ -15,11 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>
-          {
-            children
-          }
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   )

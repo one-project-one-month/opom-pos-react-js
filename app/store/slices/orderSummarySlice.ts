@@ -2,9 +2,9 @@ import { createSlice } from '@reduxjs/toolkit'
 
 export interface OrderSummaryState {
   orders: {
-    // id: string
-    image: string
-    title: string
+    id: string
+    photo: string
+    name: string
     price: string
     quantity: number
   }[]
@@ -19,7 +19,7 @@ export const orderSummarySlice = createSlice({
   initialState,
   reducers: {
     addOrder: (state, action) => {
-      const order = state.orders.find((o) => o.title === action.payload.title)
+      const order = state.orders.find((o) => o.id === action.payload.id)
       if (state.orders.length !== 0 && order) {
         order.quantity++
       } else {
@@ -31,19 +31,17 @@ export const orderSummarySlice = createSlice({
     removeOrder: (state, action) => {
       // const order = state.orders.find((o) => o.title === action.payload.title)
 
-      state.orders = state.orders.filter(
-        (o) => o.title !== action.payload.title
-      )
+      state.orders = state.orders.filter((o) => o.id !== action.payload.id)
     },
 
     increaseQuantity: (state, action) => {
-      const order = state.orders.find((o) => o.title === action.payload.title)
+      const order = state.orders.find((o) => o.id === action.payload.id)
       if (order) {
         order.quantity++
       }
     },
     decreaseQuantity: (state, action) => {
-      const order = state.orders.find((o) => o.title === action.payload.title)
+      const order = state.orders.find((o) => o.id === action.payload.id)
       if (order) {
         order.quantity--
       }
